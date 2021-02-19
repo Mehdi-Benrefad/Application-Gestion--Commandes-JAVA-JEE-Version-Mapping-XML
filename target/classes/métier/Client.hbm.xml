@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-
+//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="métier">
+<class name="métier.Client" table="Client">
+
+<id name="idClient" column="ID_CLIENT">
+<generator class="native"></generator>
+</id>
+
+<property name="nomClient" column="NOMClient"></property>
+<property name="societe" column="Societe"></property>
+
+<set name="ls"  inverse="true">
+	<key column="ID_CLIENT"/>
+	<one-to-many class="métier.Commande"/>
+</set>
+
+</class>
+</hibernate-mapping>

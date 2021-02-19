@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-
+//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<class name="métier.Commande" table="COMMANDES">
+<id name="idCommande" column="ID_COMMANDE">
+<generator class="native"/>
+</id>
+<property name="dateCommande" column="DATE_COMMANDE"/>
+
+<many-to-one name="client" column="ID_CLIENT"/>
+
+<list name="lesComposantes" table="COMPOSANTES">
+<key column="idCommande"/>
+
+<list-index column="ID_COMPOSANTE"/>
+<composite-element class="métier.Composante">
+<property name="quantite" column="QUANTITE"/>
+<many-to-one name="produit" column="ID_PRODUIT" class="métier.Produit"/>
+
+</composite-element>
+</list>
+</class>
+</hibernate-mapping>

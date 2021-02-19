@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-
+//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping >
+<class name="métier.Produit" table="PRODUITS">
+<id name="idProduit" column="ID_PRODUIT">
+<generator class="native"/>
+</id>
+<property name="designation"/>
+<property name="quantite"/>
+<property name="disponible"/>
+<property name="prix"/>
+</class>
+</hibernate-mapping>
